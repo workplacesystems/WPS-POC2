@@ -13,7 +13,7 @@ class WeatherController extends Zend_Controller_Action
         $request = $this->getRequest();
         $formData = $request->getPost();
         $postcode = $formData['postcode'];
-        
+        print_r($postcode."x");
         if($postcode) {
             $this->view->postcode = $postcode;
         }
