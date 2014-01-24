@@ -29,31 +29,30 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>Scheduling: Get the weather for your area</title>
 </head>
-    <body style="background-color: #CCFF99">
+    <body>
         <table width="100%" name="weather" id="weather">
             <tr>
-                <th width="50" align="center">Home</th>
-                <th width="50" align="center">Schedules</th>
-                <th width="50" align="center">Offering</th>
-                <th width="50" align="center">Staff<th>
-                <th width="50" align="center">Admin</th>
-                <th width="50" align="center">Help</th>
+                <th>Home</th>
+                <th>Schedules</th>
+                <th>Offering</th>
+                <th>Staff<th>
+                <th>Admin</th>
+                <th>Help</th>
             </tr>
         </table>
         <br/>
         <br/>
         <form method="post" name="weather" id="weather">
-        <table cellpadding="2">
+        <table name="weather" id="weather">
             <tr>
-                <td>Enter your Postcode:</td>
-                <td><input type="text" id="postcode" name="postcode"></input></td>
+                <th>Postcode</th>
+                <th>Action</th>
             </tr> 
             <tr>
-                <td></td>
+                <td><input type="text" id="postcode" name="postcode"></input></td>
                 <td><input type="submit" id="submit" name="submit" value="Get Weather" /></td>
             </tr>                
         </table>
-        <br/>
         <br/>
         <? if ($this->postcode != '') { ?>
             <h1>Latest weather for postcode <?=$this->postcode?>:</h1>
