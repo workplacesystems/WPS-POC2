@@ -30,8 +30,9 @@
   <title>Scheduling: Get the weather for your area</title>
 </head>
     <body>
-        <table width="75%" name="weather" id="weather">
+        <table style="width: 75%" name="weather" id="weather">
             <tr>
+                <th><a href="/">Back</a></th>
                 <th>Home</th>
                 <th>Schedules</th>
                 <th>Offering</th>
@@ -43,14 +44,14 @@
         <br/>
         <br/>
         <form method="post" name="weather" id="weather">
-        <table width="25%" name="weather" id="weather">
+        <table style="width: 25%" name="weather" id="weather">
             <tr>
-                <th colspan="2">Enter your postcode</th>
-            </tr> 
+                <td>Enter your postcode:</td>
+                <td><input type="text" id="postcode" name="postcode" /></td>
+            </tr>
             <tr>
-                <td><input type="text" id="postcode" name="postcode"></input></td>
-                <td><input type="submit" id="submit" name="submit" value="Get Weather" /></td>
-            </tr>                
+                <td colspan="2" align="left"><input type="submit" id="submit" name="submit" value="Get Weather" /></td>
+            </tr>              
         </table>
         <br/>
         <? if ($this->postcode != '') { ?>
