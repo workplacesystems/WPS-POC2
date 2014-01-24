@@ -28,11 +28,12 @@ class WeatherController extends Zend_Controller_Action
             
             // array containing the column headers for the data
             $weatherHeaders = explode(",", $weatherRows[6]);
+            $weatherData = explode(",", $weatherRows[9]);
             
             $this->view->weatherHeaders = $weatherHeaders;
-            $this->view->weatherData = explode(",", $weatherRows[9]);
+            $this->view->weatherData = $weatherData;
             
-            print_r(weatherData);
+            print_r($weatherData);
             
         }
     }
