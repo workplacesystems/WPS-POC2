@@ -11,7 +11,9 @@ class WeatherController extends Zend_Controller_Action
     public function indexAction()
     {
         $request = $this->getRequest();
-        print_r($request);
+        print_r($request,1);
+        $formData = $request->getPost();
+        print_r($formData,1);
         if ($request->isPost()) {
             $formData = $request->getPost();
             // process the save action on the main page form
