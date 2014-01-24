@@ -10,6 +10,7 @@ class WeatherController extends Zend_Controller_Action
 
     public function indexAction()
     {
+        $request = $this->getRequest();
         $formData = $request->getPost();
         $postcode = $formData['postcode'];
         
