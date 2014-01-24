@@ -1,6 +1,31 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+    <style>
+        #weather {
+        border-collapse: collapse;
+        font-family: "Trebuchet MS",Arial,Helvetica,sans-serif;
+        width: 100%;
+        }
+        #weather td, #customers th {
+            border: 1px solid #98BF21;
+            font-size: 1.2em;
+            padding: 3px 7px 2px;
+        }
+        #weather th {
+            background-color: #A7C942;
+            color: #FFFFFF;
+            font-size: 1.4em;
+            padding-bottom: 4px;
+            padding-top: 5px;
+            text-align: left;
+        }
+        #weather tr.alt td {
+            background-color: #EAF2D3;
+            color: #000000;
+        }
+
+</style>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>Scheduling: Get the weather for your area</title>
 </head>
@@ -33,11 +58,10 @@
         <? if ($this->postcode != '') { ?>
             <h1>Latest weather for postcode <?=$this->postcode?>:</h1>
             <br/>
-            <table>
-                <table width="50%" style="border: 1px solid gray">
+                <table width="100%" class="weather" id="weather">
                     <tr>
                         <? foreach($this->weatherHeaders as $header) { ?>
-                            <th width="50" align="center"><?=$header?></th>
+                            <th align="center"><?=$header?></th>
                         <? } ?>
                     </tr>                    
                     <tr>
@@ -49,7 +73,6 @@
                         <td width="50" align="center">&nbsp;</td>
                     </tr>
                 </table>
-            </table>
         <?}?>
     </form>
 </body>
