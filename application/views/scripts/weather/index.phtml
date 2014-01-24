@@ -15,7 +15,9 @@
                 <td width="50" align="center">Help</td>
             </tr>
         </table>
-        <form method="post" action="weather/getweather" name="weather" id="weather">
+        <br/>
+        <br/>
+        <form method="post" name="weather" id="weather">
         <table cellpadding="2">
             <tr>
                 <td>Enter your Postcode:</td>
@@ -25,8 +27,12 @@
                 <td></td>
                 <td><input type="submit" id="submit" name="submit" value="Get Weather" /></td>
             </tr>                
-
         </table>
+        <br/>
+        <br/>
+        <? if ($postcode != '') { ?>
+            <h1>Latest weather for postcode <?=$postcode?>:</h1>
+        <?}?>
     </form>
 </body>
 </html>
