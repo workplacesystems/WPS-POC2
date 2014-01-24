@@ -32,12 +32,12 @@
     <body style="background-color: #CCFF99">
         <table width="100%" name="weather" id="weather">
             <tr>
-                <td width="50" align="center">Home</td>
-                <td width="50" align="center">Schedules</td>
-                <td width="50" align="center">Offering</td>
-                <td width="50" align="center">Staff</td>
-                <td width="50" align="center">Admin</td>
-                <td width="50" align="center">Help</td>
+                <th width="50" align="center">Home</th>
+                <th width="50" align="center">Schedules</td>
+                <th width="50" align="center">Offering</th>
+                <th width="50" align="center">Staffthtd>
+                <th width="50" align="center">Admin</th>
+                <th width="50" align="center">Help</th>
             </tr>
         </table>
         <br/>
@@ -65,12 +65,9 @@
                         <? } ?>
                     </tr>                    
                     <tr>
-                        <td width="50" align="center">&nbsp;</td>
-                        <td width="50" align="center">&nbsp;</td>
-                        <td width="50" align="center">&nbsp;</td>
-                        <td width="50" align="center">&nbsp;</td>
-                        <td width="50" align="center">&nbsp;</td>
-                        <td width="50" align="center">&nbsp;</td>
+                        <? foreach($this->weatherData as $data) { ?>
+                            <td align="center"><?=$data?></td>
+                        <? } ?>
                     </tr>
                 </table>
         <?}?>
