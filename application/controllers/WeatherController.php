@@ -14,14 +14,15 @@ class WeatherController extends Zend_Controller_Action
         print_r($request);
         $formData = $request->getPost();
         print_r($formData);
-        if ($request->isPost()) {
-            $formData = $request->getPost();
-            // process the save action on the main page form
-            if ($formData['action'] === 'weather') {
-                Zend_Registry::get('logger')->debug(print_r($formData, true)); 
-            }
-        }
     }
+    
+    public function getweatherAction()
+    {
+        $request = $this->getRequest();
+        print_r($request);
+        $formData = $request->getPost();
+        print_r($formData);
+    }    
 
 
 }
