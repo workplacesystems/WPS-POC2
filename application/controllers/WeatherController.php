@@ -30,7 +30,9 @@ class WeatherController extends Zend_Controller_Action
             $weatherHeaders = explode(",", $weatherRows[6]);
             
             $this->view->weatherHeaders = $weatherHeaders;
-            //print_r($weatherRows);
+            $this->view->weatherData = explode(",", $weatherRows[9]);
+            
+            print_r(weatherData);
             
         }
     }
