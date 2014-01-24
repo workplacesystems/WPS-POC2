@@ -36,12 +36,9 @@
             <table>
                 <table width="50%" style="border: 1px solid gray">
                     <tr>
-                        <th width="50" align="center">1</th>
-                        <th width="50" align="center">2</th>
-                        <th width="50" align="center">3</th>
-                        <th width="50" align="center">4</th>
-                        <th width="50" align="center">5</th>
-                        <th width="50" align="center">6</th>
+                        <? foreach($this->weatherHeaders as $header) { ?>
+                            <th width="50" align="center"><?=$header?></th>
+                        <? } ?>
                     </tr>                    
                     <tr>
                         <td width="50" align="center">&nbsp;</td>

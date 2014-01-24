@@ -25,7 +25,12 @@ class WeatherController extends Zend_Controller_Action
             $this->view->postcode = $postcode;
             
             $weatherRows = explode("\r\n", $result);
-            print_r($weatherRows);
+            
+            // array containing the column headers for the data
+            $weatherHeaders = explode(",", $weatherRows[6]);
+            
+            $this->view->weatherHeaders = $weatherHeaders;
+            //print_r($weatherRows);
             
         }
     }
