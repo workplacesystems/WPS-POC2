@@ -53,8 +53,8 @@
             </tr>              
         </table>
         <br/>
-        <? if ($this->postcode != '') { ?>
-            <h1>Latest weather for postcode <?=$this->postcode?>:</h1>
+        <? if ($this->postcode != '' && !empty($this->weatherHeaders)) { ?>
+        <div><h1>Latest weather for postcode <?=$this->postcode?>:</h1></div>
                 <table width="100%" class="weather" id="weather">
                     <tr>
                         <? foreach($this->weatherHeaders as $header) { ?>
@@ -72,6 +72,12 @@
                             <? } ?>
                         <? } ?>
                     </tr>
+                </table>
+        <? } else  { ?>
+                <table width="50%">
+                    <tr>
+                        <td><h1>Postcode not recognised.</h1></td>
+                    </tr>                    
                 </table>
         <?}?>
     </form>
