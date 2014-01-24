@@ -18,7 +18,7 @@
             font-size: 1.4em;
             padding-bottom: 4px;
             padding-top: 5px;
-            text-align: left;
+            text-align: center;
         }
         #weather tr.alt td {
             background-color: #EAF2D3;
@@ -33,9 +33,9 @@
         <table width="100%" name="weather" id="weather">
             <tr>
                 <th width="50" align="center">Home</th>
-                <th width="50" align="center">Schedules</td>
+                <th width="50" align="center">Schedules</th>
                 <th width="50" align="center">Offering</th>
-                <th width="50" align="center">Staffthtd>
+                <th width="50" align="center">Staff<th>
                 <th width="50" align="center">Admin</th>
                 <th width="50" align="center">Help</th>
             </tr>
@@ -66,7 +66,13 @@
                     </tr>                    
                     <tr>
                         <? foreach($this->weatherData as $data) { ?>
-                            <td align="center"><?=$data?></td>
+                            <?
+                            $img = strpos($data, ".png") ? "<img src='".$data."'/>" : null; 
+                            if ($img) {?>
+                                <td align="center"><?=$img?></td>
+                            <? } else { ?>
+                                <td align="center"><?=$data?></td>
+                            <? } ?>
                         <? } ?>
                     </tr>
                 </table>
