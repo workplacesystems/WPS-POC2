@@ -2,6 +2,7 @@
 
 class WeatherController extends Zend_Controller_Action
 {
+    private $_WSDL_URI="http://192.168.188.128:8081/soap?wsdl";
 
     public function init()
     {
@@ -15,6 +16,16 @@ class WeatherController extends Zend_Controller_Action
         $postcode = $formData['postcode'];
         if($postcode) {
             $this->view->postcode = $postcode;
+            
+            $wsdl_uri = 'http://api.worldweatheronline.com/free/v1/weather.ashx?q=' . $postcode . '&format=csv&num_of_days=5&key=3ujjqezksxanb8mkg85e9j83';
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, $wsdl_uri);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            $result = curl_exec($ch);
+
+            print_r($result);
+            
         }
     }
+    
 }
