@@ -5,7 +5,7 @@
   <title>Scheduling: Get the weather for your area</title>
 </head>
     <body style="background-color: #CCFF99">
-        <table width="50%" style="border: 1px solid gray">
+        <table width="50%" style="border: 1px solid gray; background-color: #AAFF99">
             <tr>
                 <td width="50" align="center">Home</td>
                 <td width="50" align="center">Schedules</td>
@@ -30,8 +30,29 @@
         </table>
         <br/>
         <br/>
-        <? if ($postcode != '') { ?>
-            <h1>Latest weather for postcode <?=$postcode?>:</h1>
+        <? if ($this->$postcode != '') { ?>
+            <h1>Latest weather for postcode <?=$this->$postcode?>:</h1>
+            <br/>
+            <table>
+                <table width="50%" style="border: 1px solid gray">
+                    <tr>
+                        <th width="50" align="center">1</th>
+                        <th width="50" align="center">2</th>
+                        <th width="50" align="center">3</th>
+                        <th width="50" align="center">4</th>
+                        <th width="50" align="center">5</th>
+                        <th width="50" align="center">6</th>
+                    </tr>                    
+                    <tr>
+                        <td width="50" align="center">&nbsp;</td>
+                        <td width="50" align="center">&nbsp;</td>
+                        <td width="50" align="center">&nbsp;</td>
+                        <td width="50" align="center">&nbsp;</td>
+                        <td width="50" align="center">&nbsp;</td>
+                        <td width="50" align="center">&nbsp;</td>
+                    </tr>
+                </table>
+            </table>
         <?}?>
     </form>
 </body>
