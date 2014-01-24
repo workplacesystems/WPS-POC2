@@ -30,7 +30,7 @@
   <title>Scheduling: Get the weather for your area</title>
 </head>
     <body>
-        <table style="width: 75%" name="weather" id="weather">
+        <table style="width: 75%" name="weather" id="weather" align="center">
             <tr>
                 <th><a href="/">Home</a></th>
                 <th>Schedules</th>
@@ -55,7 +55,6 @@
         <br/>
         <? if ($this->postcode != '') { ?>
             <h1>Latest weather for postcode <?=$this->postcode?>:</h1>
-            <br/>
                 <table width="100%" class="weather" id="weather">
                     <tr>
                         <? foreach($this->weatherHeaders as $header) { ?>
