@@ -15,7 +15,6 @@ class WeatherController extends Zend_Controller_Action
         $formData = $request->getPost();
         $postcode = $formData['postcode'];
         if($postcode) {
-            $this->view->postcode = $postcode;
             
             $wsdl_uri = 'http://api.worldweatheronline.com/free/v1/weather.ashx?q=' . $postcode . '&format=csv&num_of_days=5&key=3ujjqezksxanb8mkg85e9j83';
             $ch = curl_init();
@@ -23,7 +22,10 @@ class WeatherController extends Zend_Controller_Action
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
             $result = curl_exec($ch);
 
-            print_r($result);
+            $this->view->postcode = $postcode;
+            
+            $weatherRows = explode("\r\n", $result);
+            print_r($weatherRows);
             
         }
     }
