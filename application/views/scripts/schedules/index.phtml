@@ -41,39 +41,27 @@
             </tr>
         </table>
         <br/>
+        <div><h1>Create New Schedules</h1></div>
         <br/>
-        <form method="post" name="weather" id="weather">
+        <form method="post" name="schedules" id="weather">
         <table style="width: 25%" name="weather" id="weather" align="center">
             <tr>
-                <td>Enter your postcode:</td>
-                <td><input type="text" id="postcode" name="postcode" /></td>
+                <td>Description:</td>
+                <td><input type="text" id="description" name="description" /></td>
             </tr>
             <tr>
-                <td colspan="2" align="left"><input type="submit" id="submit" name="submit" value="Get Weather" /></td>
+                <td>Start Date:</td>
+                <td><input type="text" id="start_date" name="start_date" /></td>
+            </tr>
+            <tr>
+                <td>End Date:</td>
+                <td><input type="text" id="end_date" name="end_date" /></td>
+            </tr>            
+            <tr>
+                <td colspan="2" align="left"><input type="submit" id="submit" name="submit" value="Add" /></td>
             </tr>              
         </table>
         <br/>
-        <? if ($this->postcode != '' && !empty($this->weatherData)) { ?>
-        <div><h1>Latest weather for postcode <?=$this->postcode?>:</h1></div>
-                <table width="100%" class="weather" id="weather">
-                    <tr>
-                        <? foreach($this->weatherHeaders as $header) { ?>
-                            <th align="center"><?=$header?></th>
-                        <? } ?>
-                    </tr>                    
-                    <tr>
-                        <? foreach($this->weatherData as $data) { ?>
-                            <?
-                            $img = strpos($data, ".png") ? "<img src='".$data."'/>" : null; 
-                            if ($img) {?>
-                                <td align="center"><?=$img?></td>
-                            <? } else { ?>
-                                <td align="center"><?=$data?></td>
-                            <? } ?>
-                        <? } ?>
-                    </tr>
-                </table>
-        <?}?>
     </form>
 </body>
 </html>
