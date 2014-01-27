@@ -2,17 +2,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <style>
-        #weather {
+        #tablex {
         border-collapse: collapse;
         font-family: "Trebuchet MS",Arial,Helvetica,sans-serif;
         width: 100%;
         }
-        #weather td, #customers th {
+        #tablex td, #customers th {
             border: 1px solid #98BF21;
             font-size: 1.2em;
             padding: 3px 7px 2px;
         }
-        #weather th {
+        #tablex th {
             background-color: #A7C942;
             color: #FFFFFF;
             font-size: 1.4em;
@@ -20,7 +20,7 @@
             padding-top: 5px;
             text-align: center;
         }
-        #weather tr.alt td {
+        #tablex tr.alt td {
             background-color: #EAF2D3;
             color: #000000;
         }
@@ -44,7 +44,7 @@
         <div><h1>Create New Schedules</h1></div>
         <br/>
         <form method="post" name="schedules" id="schedules">
-        <table style="width: 25%" name="weather" id="weather" align="center">
+        <table style="width: 25%" name="tablex" id="tablex" align="center">
             <tr>
                 <td>Description:</td>
                 <td><input type="text" id="description" name="description" /></td>
@@ -64,19 +64,19 @@
         <br/>
         <? if (!empty($this->schedules)) { ?>
         <div><h1>Your schedules:</h1></div>
-                <table width="50%" class="schedules" id="schedules" align="center">
+                <table width="50%" class="tablex" id="tablex" align="center">
                     <tr>
                         <th>Description</th>
                         <th>Start Date</th>
                         <th>End Date</th>
                     </tr>                    
-                    <tr>
                     <? foreach($this->schedules as $schedule) { ?>
+                    <tr>
                         <td align="left"><?=$schedule['description']?></td>
                         <td align="left"><?=$schedule['start_date']?></td>
                         <td align="left"><?=$schedule['end_date']?></td>
-                    <? } ?>
                     </tr>
+                    <? } ?>
                 </table>
         <?}?>
     </form>

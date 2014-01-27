@@ -8,10 +8,6 @@ class SchedulesController extends Zend_Controller_Action
 
     public function indexAction() {
         $db = $this->connectDB();
-        
-        error_reporting(E_ALL);
-        ini_set('display_errors', '1');
-
         $request = $this->getRequest();
         $formData = $request->getPost();
         $schedule = new Schedule($formData['description'], $formData['start_date'], $formData['description']);
@@ -64,8 +60,6 @@ class Schedule {
                 )
             );
     }
-    
-
     
     static function getAll($db) {
         $rows = $db->fetchAll("SELECT * FROM schedule");
