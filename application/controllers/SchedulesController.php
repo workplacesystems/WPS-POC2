@@ -63,6 +63,7 @@ class Schedule {
     
     static function getAll() {
         $db = $this->connectDB();
-        return $db->fetchAll("SELECT * FROM schedule");
+        $rows = $db->fetchAll("SELECT * FROM schedule");
+        return $rows;
     }
 }

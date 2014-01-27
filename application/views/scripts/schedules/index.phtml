@@ -43,7 +43,7 @@
         <br/>
         <div><h1>Create New Schedules</h1></div>
         <br/>
-        <form method="post" name="schedules" id="weather">
+        <form method="post" name="schedules" id="schedules">
         <table style="width: 25%" name="weather" id="weather" align="center">
             <tr>
                 <td>Description:</td>
@@ -71,11 +71,11 @@
                         <th>End Date</th>
                     </tr>                    
                     <tr>
-                        <? foreach($this->schedules as $schedule) { ?>
-                                <td align="left"><?=$schedule['description']?></td>
-                                <td align="left"><?=$schedule['start_date']?></td>
-                                <td align="left"><?=$schedule['end_date']?></td>
-                        <? } ?>
+                    <? foreach($this->schedules as $schedule) { ?>
+                        <td align="left"><?=$schedule['description']?></td>
+                        <td align="left"><?=$schedule['start_date']?></td>
+                        <td align="left"><?=$schedule['end_date']?></td>
+                    <? } ?>
                     </tr>
                 </table>
         <?}?>
