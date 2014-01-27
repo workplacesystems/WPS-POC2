@@ -7,6 +7,11 @@ class SchedulesController extends Zend_Controller_Action
     }
 
     public function indexAction() {
+        
+        
+        error_reporting(E_ALL);
+        ini_set('display_errors', '1');
+
         $request = $this->getRequest();
         $formData = $request->getPost();
         $schedule = new Schedule($formData['description'], $formData['start_date'], $formData['description']);
