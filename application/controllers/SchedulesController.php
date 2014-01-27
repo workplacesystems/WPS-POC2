@@ -17,7 +17,7 @@ class SchedulesController extends Zend_Controller_Action
     
     function addSchedule(Schedule $schedule) {
         $db = $this->connectDB();
-        $db->insert('schedule', extract($schedule));
+        $db->insert('schedule', array('description' => $schedule->description));
     }
     
     function connectDB() {
