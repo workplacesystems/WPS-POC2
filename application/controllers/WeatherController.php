@@ -10,6 +10,11 @@ class WeatherController extends Zend_Controller_Action
         $request = $this->getRequest();
         $formData = $request->getPost();
         $postcode = $formData['postcode'];
+        
+        $db = $this->connectDB();
+        $result = $db->fetchAll("DESC schedule;");
+        $this->view->db_test = $result;
+        
         if($postcode) {
             
             $weather = $this->getWeather($postcode);
@@ -32,4 +37,21 @@ class WeatherController extends Zend_Controller_Action
         return curl_exec($ch);
     }
     
+    function connectDB() {
+        $config = new Zend_Config(
+        array(
+            'database' => array(
+                'adapter' => 'Mysqli',
+                'params'  => array(
+                    'host'     => 'ec2-50-17-185-106.compute-1.amazonaws.com',
+                    'dbname'   => 'wpspoc2',
+                    'username' => 'deploy',
+                    'password' => '2F1RmVw02s',
+                    )
+                )
+            )
+        );
+
+        return Zend_Db::factory($config->database);
+    }
 }
