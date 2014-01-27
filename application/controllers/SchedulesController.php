@@ -11,13 +11,37 @@ class SchedulesController extends Zend_Controller_Action
         $formData = $request->getPost();
         $schedule = new Schedule($formData['description'], $formData['start_date'], $formData['description']);
         if ($schedule->description) {
-            $this->addSchedule($schedule);
+           $schedule->save();
         }
+        
+        $schedules = Schedule::getAll();
+        $this->view->schedules = $schedules;
     }
-    
-    function addSchedule(Schedule $schedule) {
+}
+
+/* Wouln;t normally shove it all in here, but it's just a POC! */
+class Schedule {
+
+    public $description;
+    public $start_date;
+    public $end_date;
+
+    function __construct($description, $start_date, $end_date) {
+        $this->description = $description;
+        $this->start_date = $start_date;
+        $this->end_date = $end_date;
+    }
+
+    function save() {
         $db = $this->connectDB();
-        $db->insert('schedule', array('description' => $schedule->description));
+        $db->insert(
+                'schedule', 
+                array(
+                    'description' => $this->description, 
+                    'start_date' => $this->start_date, 
+                    'end_date' => $this->end_date
+                )
+            );
     }
     
     function connectDB() {
@@ -34,21 +58,11 @@ class SchedulesController extends Zend_Controller_Action
                 )
             )
         );
-
         return Zend_Db::factory($config->database);
+    }    
+    
+    static function getAll() {
+        $db = $this->connectDB();
+        return $db->fetchAll("SELECT * FROM schedule");
     }
-}
-
-class Schedule {
-
-    public $description;
-    public $start_date;
-    public $end_date;
-
-    function __construct($description, $start_date, $end_date) {
-        $this->description = $description;
-        $this->start_date = $start_date;
-        $this->end_date = $end_date;
-    }
-
 }

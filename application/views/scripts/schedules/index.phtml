@@ -62,6 +62,23 @@
             </tr>              
         </table>
         <br/>
+        <? if (!empty($this->schedules)) { ?>
+        <div><h1>Your schedules:</h1></div>
+                <table width="50%" class="schedules" id="schedules" align="center">
+                    <tr>
+                        <th>Description</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                    </tr>                    
+                    <tr>
+                        <? foreach($this->schedules as $schedule) { ?>
+                                <td align="left"><?=$schedule['description']?></td>
+                                <td align="left"><?=$schedule['start_date']?></td>
+                                <td align="left"><?=$schedule['end_date']?></td>
+                        <? } ?>
+                    </tr>
+                </table>
+        <?}?>
     </form>
 </body>
 </html>
