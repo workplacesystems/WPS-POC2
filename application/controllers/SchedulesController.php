@@ -10,7 +10,7 @@ class SchedulesController extends Zend_Controller_Action
         $db = $this->connectDB();
         $request = $this->getRequest();
         $formData = $request->getPost();
-        $schedule = new Schedule($formData['description'], $formData['start_date'], $formData['description']);
+        $schedule = new Schedule($formData['description'], $formData['start_date'], $formData['end_date']);
         if ($schedule->description) {
            $schedule->save($db);
         }
